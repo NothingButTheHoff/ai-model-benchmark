@@ -1,0 +1,72 @@
+.chess-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.game-header h1 {
+  margin: 0;
+  color: #333;
+}
+
+.reset-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}
+
+.game-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  flex: 0 0 200px;
+}
+
+.board-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.turn-indicator {
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.game-status {
+  font-weight: bold;
+  color: #e74c3c;
+  font-size: 22px;
+}
+
+.chess-board {
+  display: inline-block;
+  border: 3px solid #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.board-row {
+  display: flex;
+}

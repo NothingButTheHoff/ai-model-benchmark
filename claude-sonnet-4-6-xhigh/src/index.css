@@ -1,0 +1,37 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --board-size: min(560px, 96vw);
+  --square-size: calc(var(--board-size) / 8);
+
+  --light-sq: #f0d9b5;
+  --dark-sq: #b58863;
+  --selected-sq: #f6f669;
+  --valid-dot: rgba(0, 0, 0, 0.25);
+  --capture-ring: rgba(0, 0, 0, 0.3);
+  --check-sq: #ff4444;
+  --white-piece: #fff;
+  --black-piece: #1a1a1a;
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --text: #e0e0e0;
+  --accent: #4a90d9;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+}

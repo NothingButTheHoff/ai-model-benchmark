@@ -1,0 +1,214 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #312e2b;
+  color: #fff;
+  padding: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+/* ---- Board ---- */
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: min(88vw, 560px);
+  aspect-ratio: 1;
+  border: 3px solid #555;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.square {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.square.light { background: #f0d9b5; }
+.square.dark  { background: #b58863; }
+
+.square.selected.light { background: #f7ec5c; }
+.square.selected.dark  { background: #dac34b; }
+
+.square.last-move.light { background: #cdd26a; }
+.square.last-move.dark  { background: #aaa23a; }
+
+/* ---- Pieces ---- */
+
+.piece {
+  font-size: min(8.5vw, 54px);
+  line-height: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35));
+}
+
+/* ---- Move indicators ---- */
+
+.move-dot {
+  position: absolute;
+  width: 26%;
+  height: 26%;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.move-capture {
+  position: absolute;
+  inset: 0;
+  border: 5px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ---- Check highlight ---- */
+
+.check-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.6) 0%, rgba(255, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+/* ---- Coordinate labels ---- */
+
+.square[data-rank]::before {
+  content: attr(data-rank);
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+}
+.square[data-file]::after {
+  content: attr(data-file);
+  position: absolute;
+  bottom: 1px;
+  right: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.square.light[data-rank]::before,
+.square.light[data-file]::after { color: #b58863; }
+
+.square.dark[data-rank]::before,
+.square.dark[data-file]::after { color: #f0d9b5; }
+
+/* ---- Game info ---- */
+
+.game-info {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.status {
+  font-size: 1.25rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.status.check     { color: #ff6b6b; }
+.status.checkmate { color: #ff4444; font-weight: bold; }
+.status.stalemate { color: #ffd93d; }
+
+.captured-row {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.captured-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.captured-label {
+  font-size: 0.8rem;
+  color: #999;
+}
+.captured-pieces {
+  font-size: 1.15rem;
+  display: flex;
+  gap: 1px;
+}
+
+/* ---- Promotion dialog ---- */
+
+.promotion-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.promotion-dialog {
+  background: #3d3a37;
+  border-radius: 12px;
+  padding: 20px 28px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.promotion-dialog h3 {
+  margin: 0 0 14px;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+.promotion-options {
+  display: flex;
+  gap: 10px;
+}
+.promotion-piece {
+  font-size: 44px;
+  background: #524f4c;
+  border: 2px solid #666;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: inherit;
+  line-height: 1;
+}
+.promotion-piece:hover {
+  background: #625f5c;
+  border-color: #999;
+  transform: scale(1.1);
+}
+
+/* ---- Reset button ---- */
+
+.reset-btn {
+  margin-top: 14px;
+  padding: 10px 24px;
+  background: #524f4c;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.15s;
+}
+.reset-btn:hover {
+  background: #625f5c;
+  border-color: #999;
+}

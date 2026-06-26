@@ -1,0 +1,231 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.game-info {
+  text-align: center;
+}
+
+.status {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: #16213e;
+}
+
+.status.check {
+  background: #e67e22;
+  color: #fff;
+}
+
+.status.checkmate {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.status.stalemate {
+  background: #7f8c8d;
+  color: #fff;
+}
+
+.board-area {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #0f3460;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.board-row {
+  display: flex;
+  align-items: center;
+}
+
+.rank-label {
+  width: 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  user-select: none;
+}
+
+.file-labels {
+  display: flex;
+}
+
+.rank-spacer {
+  width: 24px;
+}
+
+.file-label {
+  width: 72px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  user-select: none;
+}
+
+.square {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.15s;
+}
+
+.square.light {
+  background: #e8d5b5;
+}
+
+.square.dark {
+  background: #b58863;
+}
+
+.square.selected {
+  background: #f6d365 !important;
+}
+
+.square.in-check {
+  background: radial-gradient(circle, #ff4444 0%, #cc0000 60%, transparent 70%) !important;
+}
+
+.square.legal-move {
+  cursor: pointer;
+}
+
+.move-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.capture-ring {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.piece {
+  font-size: 2.8rem;
+  line-height: 1;
+  user-select: none;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+
+.captured-panel {
+  min-width: 100px;
+  padding: 8px;
+}
+
+.captured-panel h4 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.captured-pieces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.captured-piece {
+  font-size: 1.5rem;
+}
+
+.reset-btn {
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background: #c0392b;
+}
+
+.promotion-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.promotion-dialog {
+  background: #1a1a2e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.promotion-dialog h3 {
+  margin: 0 0 16px;
+  color: #fff;
+}
+
+.promotion-options {
+  display: flex;
+  gap: 12px;
+}
+
+.promotion-btn {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.promotion-btn:hover {
+  background: #0f3460;
+  border-color: #e8d5b5;
+}

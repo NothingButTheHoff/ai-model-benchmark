@@ -1,0 +1,53 @@
+.square {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.square.light {
+  background-color: #f0d9b5;
+}
+
+.square.dark {
+  background-color: #b58863;
+}
+
+.square.selected {
+  background-color: #829769 !important;
+}
+
+.square.valid-move {
+  background-color: #9bc19c;
+}
+
+.square:hover {
+  opacity: 0.8;
+}
+
+.piece {
+  font-size: 60px;
+  user-select: none;
+  line-height: 1;
+}
+
+.piece.white {
+  color: #fff;
+  text-shadow: 0 0 2px #000, 0 0 3px #000;
+}
+
+.piece.black {
+  color: #000;
+  text-shadow: 0 0 2px #fff, 0 0 3px #fff;
+}
+
+.move-indicator {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}

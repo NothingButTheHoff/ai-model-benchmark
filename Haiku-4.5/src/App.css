@@ -1,0 +1,263 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.board-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.status {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 30px;
+  color: #333;
+}
+
+.status.white {
+  color: #fff;
+  background: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.status.black {
+  color: #fff;
+  background: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.status.check {
+  color: #fff;
+  background: #d32f2f;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.status.checkmate {
+  color: #fff;
+  background: #1565c0;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.status.stalemate {
+  color: #fff;
+  background: #f57c00;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  gap: 0;
+  border: 3px solid #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.square {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.square.light {
+  background-color: #f0d9b5;
+}
+
+.square.dark {
+  background-color: #b58863;
+}
+
+.square.selected {
+  background-color: #baca44 !important;
+  box-shadow: inset 0 0 0 2px #7aa647;
+}
+
+.square.valid-move {
+  background-color: #baca44 !important;
+}
+
+.square.valid-move::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.square.capture::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.piece {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 200px;
+}
+
+.captured {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.captured h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.captured-pieces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-height: 30px;
+}
+
+.captured-piece {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.move-history {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+.move-history h3 {
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+.move-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.move-list li {
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.move-list li:last-child {
+  border-bottom: none;
+}
+
+.promotion-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.promotion-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.promotion-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.promotion-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.promotion-button {
+  font-size: 28px;
+  padding: 15px 20px;
+  background-color: #f0d9b5;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.promotion-button:hover {
+  background-color: #baca44;
+  transform: scale(1.1);
+}
