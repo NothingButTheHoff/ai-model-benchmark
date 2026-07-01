@@ -1,0 +1,32 @@
+:root {
+  --text: #2b2b2b;
+  --bg: #faf8f5;
+  --light-square: #f0d9b5;
+  --dark-square: #b58863;
+  --highlight: rgba(255, 235, 59, 0.55);
+  --last-move: rgba(255, 193, 7, 0.35);
+  --hint: rgba(0, 0, 0, 0.28);
+  --accent: #6b4ce6;
+
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px 16px 48px;
+}
